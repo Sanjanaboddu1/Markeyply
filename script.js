@@ -114,19 +114,37 @@ document.addEventListener('DOMContentLoaded', () => {
         } 
     });
 
-    // --- Swiper Carousel Initialization ---
-    if (typeof Swiper !== 'undefined') {
-        new Swiper('.clientStoriesSwiper', {
-            slidesPerView: 5,
-            loop: false,
-            slideToClickedSlide: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            keyboard: {
-                enabled: true,
-            },
+    // --- Custom Carousel Logic ---
+    const track = document.querySelector('.custom-carousel-track');
+    const nextBtn = document.querySelector('.carousel-next');
+    const prevBtn = document.querySelector('.carousel-prev');
+
+    if (track && nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', () => {
+            track.appendChild(track.firstElementChild);
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            track.insertBefore(track.lastElementChild, track.firstElementChild);
+        });
+
+        track.addEventListener('click', (e) => {
+            const slide = e.target.closest('.video-slide');
+            if (!slide) return;
+            const slides = Array.from(track.children);
+            const index = slides.indexOf(slide);
+            
+            if (index === 0) {
+                track.insertBefore(track.lastElementChild, track.firstElementChild);
+                track.insertBefore(track.lastElementChild, track.firstElementChild);
+            } else if (index === 1) {
+                track.insertBefore(track.lastElementChild, track.firstElementChild);
+            } else if (index === 3) {
+                track.appendChild(track.firstElementChild);
+            } else if (index === 4) {
+                track.appendChild(track.firstElementChild);
+                track.appendChild(track.firstElementChild);
+            }
         });
     }
 
