@@ -718,6 +718,11 @@ a {
     }
     .contact-grid, .footer-dark-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .contact-title h2 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+        word-break: break-word;
     }
     .form-row {
         grid-template-columns: 1fr;
@@ -728,6 +733,9 @@ a {
     }
     .logo-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .video-grid {
+        grid-template-columns: 1fr;
     }
     .hero-title {
         font-size: 3rem;
