@@ -117,14 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Swiper Carousel Initialization ---
     if (typeof Swiper !== 'undefined') {
         new Swiper('.clientStoriesSwiper', {
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            spaceBetween: 20,
-            loop: true,
-            loopedSlides: 5,
-            initialSlide: 2,
+            slidesPerView: 5,
+            loop: false,
             slideToClickedSlide: true,
-            speed: 600,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
