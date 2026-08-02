@@ -121,6 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
             centeredSlides: true,
             spaceBetween: 20,
             loop: true,
+            loopedSlides: 5,
+            initialSlide: 2,
             slideToClickedSlide: true,
             speed: 600,
             navigation: {
