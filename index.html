@@ -8,8 +8,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -194,66 +194,81 @@
         <div class="container">
             <h2 class="section-heading gs_fade_up">Client Stories</h2>
             
-            <div class="video-grid">
-                <!-- p1: Biryani Factory -->
-                <div class="video-item gs_gallery_img">
-                    <video autoplay loop muted playsinline controls class="portfolio-video">
-                        <source src="p1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay">
-                        <h3>Biryani Factory</h3>
-                        <p>Client Story</p>
+            <div class="swiper clientStoriesSwiper gs_gallery_img">
+                <div class="swiper-wrapper">
+                    <!-- p1: Biryani Factory -->
+                    <div class="swiper-slide video-slide">
+                        <video autoplay loop muted playsinline controls class="portfolio-video">
+                            <source src="p1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay">
+                            <div class="overlay-text">
+                                <h3>Biryani Factory</h3>
+                                <p>Client Story</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- p2: Nexgen cricket academy -->
-                <div class="video-item gs_gallery_img">
-                    <video autoplay loop muted playsinline controls class="portfolio-video">
-                        <source src="p2.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay">
-                        <h3>Nexgen cricket academy</h3>
-                        <p>Client Story</p>
+                    
+                    <!-- p2: Nexgen cricket academy -->
+                    <div class="swiper-slide video-slide">
+                        <video autoplay loop muted playsinline controls class="portfolio-video">
+                            <source src="p2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay">
+                            <div class="overlay-text">
+                                <h3>Nexgen cricket academy</h3>
+                                <p>Client Story</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- p4: Little Crust Cafe -->
-                <div class="video-item gs_gallery_img">
-                    <video autoplay loop muted playsinline controls class="portfolio-video">
-                        <source src="p4.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay">
-                        <h3>Little Crust Cafe</h3>
-                        <p>Client Story</p>
+                    <!-- p4: Little Crust Cafe -->
+                    <div class="swiper-slide video-slide">
+                        <video autoplay loop muted playsinline controls class="portfolio-video">
+                            <source src="p4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay">
+                            <div class="overlay-text">
+                                <h3>Little Crust Cafe</h3>
+                                <p>Client Story</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- p5: Salt & pepper fusion -->
-                <div class="video-item gs_gallery_img">
-                    <video autoplay loop muted playsinline controls class="portfolio-video">
-                        <source src="p5.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay">
-                        <h3>Salt & pepper fusion</h3>
-                        <p>Client Story</p>
+                    
+                    <!-- p5: Salt & pepper fusion -->
+                    <div class="swiper-slide video-slide">
+                        <video autoplay loop muted playsinline controls class="portfolio-video">
+                            <source src="p5.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay">
+                            <div class="overlay-text">
+                                <h3>Salt & pepper fusion (1)</h3>
+                                <p>Client Story</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- p6: Salt & pepper fusion -->
-                <div class="video-item gs_gallery_img">
-                    <video autoplay loop muted playsinline controls class="portfolio-video">
-                        <source src="p6.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay">
-                        <h3>Salt & pepper fusion</h3>
-                        <p>Client Story</p>
+                    <!-- p6: Salt & pepper fusion -->
+                    <div class="swiper-slide video-slide">
+                        <video autoplay loop muted playsinline controls class="portfolio-video">
+                            <source src="p6.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay">
+                            <div class="overlay-text">
+                                <h3>Salt & pepper fusion (2)</h3>
+                                <p>Client Story</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Swiper Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
@@ -334,10 +349,12 @@
         </div>
     </footer>
 
-    <!-- GSAP Libraries -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 </html>

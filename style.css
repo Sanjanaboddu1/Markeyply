@@ -508,18 +508,30 @@ a {
     text-align: center;
 }
 
-/* Video Portfolio Gallery */
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+/* Client Stories Swiper Carousel */
+.clientStoriesSwiper {
+    width: 100%;
+    height: 500px;
+    padding: 2rem 0;
 }
 
-.video-item {
+.video-slide {
+    width: 15%; /* Narrow inactive slide */
+    height: 100%;
     position: relative;
     overflow: hidden;
     background-color: var(--black);
-    aspect-ratio: 16/9;
+    opacity: 0.5;
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.video-slide.swiper-slide-active {
+    width: 60%; /* Wide active slide */
+    opacity: 1;
+    cursor: default;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
 }
 
 .portfolio-video {
@@ -527,13 +539,6 @@ a {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.6s ease;
-    opacity: 0.85;
-}
-
-.video-item:hover .portfolio-video {
-    transform: scale(1.05);
-    opacity: 1;
 }
 
 .video-overlay {
@@ -541,23 +546,66 @@ a {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: var(--white);
+    height: 100%;
     pointer-events: none;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
 }
 
-.video-overlay h3 {
+.overlay-text h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: var(--white);
+    white-space: nowrap;
+    transition: transform 0.4s ease;
 }
 
-.video-overlay p {
+.overlay-text p {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     opacity: 0.8;
+    color: var(--white);
+}
+
+/* Inactive slide text vertical */
+.video-slide:not(.swiper-slide-active) .overlay-text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.video-slide:not(.swiper-slide-active) .overlay-text h3 {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.video-slide:not(.swiper-slide-active) .overlay-text p {
+    display: none;
+}
+
+/* Swiper Navigation */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--white);
+    background: rgba(0,0,0,0.3);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    background: var(--black);
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 /* Contact Section */
@@ -734,8 +782,11 @@ a {
     .logo-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .video-grid {
-        grid-template-columns: 1fr;
+    .video-slide {
+        width: 25%;
+    }
+    .video-slide.swiper-slide-active {
+        width: 80%;
     }
     .hero-title {
         font-size: 3rem;

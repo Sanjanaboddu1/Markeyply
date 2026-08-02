@@ -114,16 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
         } 
     });
 
-    // Portfolio Videos Scale & Fade
-    gsap.utils.toArray('.gs_gallery_img video').forEach(video => {
-        gsap.fromTo(video,
-            { scale: 1.08, opacity: 0 },
-            {
-                scrollTrigger: { trigger: video, start: "top 90%" },
-                scale: 1, opacity: 1, duration: 1, ease: 'power2.out'
-            }
-        );
-    });
+    // --- Swiper Carousel Initialization ---
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('.clientStoriesSwiper', {
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            spaceBetween: 20,
+            loop: true,
+            slideToClickedSlide: true,
+            speed: 600,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            keyboard: {
+                enabled: true,
+            },
+        });
+    }
 
     // --- Statistics Counter Logic ---
     const counters = document.querySelectorAll('.counter');
