@@ -123,16 +123,14 @@ a {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1.5rem 0;
-    transition: padding 0.4s ease, background-color 0.4s ease, backdrop-filter 0.4s ease;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 0;
+    transition: padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .navbar.scrolled {
-    padding: 1rem 0;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .nav-container {
@@ -149,7 +147,7 @@ a {
     align-items: center;
     flex-wrap: nowrap;
     gap: 12px;
-    color: var(--white);
+    color: var(--black);
     transition: color 0.4s ease;
 }
 
@@ -163,11 +161,12 @@ a {
 
 .logo-text {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 600;
     letter-spacing: 1px;
     white-space: nowrap;
     line-height: 1;
+    color: var(--black);
 }
 
 .logo-light {
@@ -176,6 +175,7 @@ a {
 
 .navbar.scrolled .logo-container, 
 .navbar.scrolled .nav-link {
+    /* Kept for backwards compatibility if scrolled class is still toggled */
     color: var(--black);
 }
 
@@ -186,8 +186,8 @@ a {
 
 .nav-link {
     font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--white);
+    font-weight: 600;
+    color: var(--black);
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
@@ -207,6 +207,16 @@ a {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.navbar .btn-outline {
+    border-color: var(--black);
+    color: var(--black);
+}
+
+.navbar .btn-outline:hover {
+    background-color: var(--black);
+    color: var(--white);
 }
 
 .navbar.scrolled .btn-outline {
