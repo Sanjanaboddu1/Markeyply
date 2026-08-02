@@ -510,7 +510,11 @@ a {
 
 /* Client Stories Swiper Carousel */
 .clientStoriesSwiper {
-    width: 100%;
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     height: 500px;
     padding: 2rem 0;
 }
