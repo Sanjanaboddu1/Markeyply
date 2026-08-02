@@ -201,3 +201,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+// --- Custom Cursor Logic ---
+const cursorCircle = document.querySelector('.cursor-circle');
+if (cursorCircle) {
+    document.addEventListener('mousemove', (e) => {
+        cursorCircle.style.left = e.clientX + 'px';
+        cursorCircle.style.top = e.clientY + 'px';
+    });
+}
