@@ -119,13 +119,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.carousel-next');
     const prevBtn = document.querySelector('.carousel-prev');
 
+    function updateVideoStates() {
+        if (!track) return;
+        const slides = Array.from(track.children);
+        slides.forEach((slide, index) => {
+            const video = slide.querySelector('video');
+            if (video) {
+                if (index === 2) {
+                    // Center active slide: play
+                    video.play().catch(e => console.log("Autoplay prevented:", e));
+                } else {
+                    // Inactive side slides: pause
+                    video.pause();
+                }
+            }
+        });
+    }
+
     if (track && nextBtn && prevBtn) {
+        // Initial setup
+        updateVideoStates();
+
         nextBtn.addEventListener('click', () => {
             track.appendChild(track.firstElementChild);
+            updateVideoStates();
         });
         
         prevBtn.addEventListener('click', () => {
             track.insertBefore(track.lastElementChild, track.firstElementChild);
+            updateVideoStates();
         });
 
         track.addEventListener('click', (e) => {
@@ -145,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 track.appendChild(track.firstElementChild);
                 track.appendChild(track.firstElementChild);
             }
+            updateVideoStates();
         });
     }
 
