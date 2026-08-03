@@ -524,7 +524,7 @@ a {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    height: 500px;
+    height: 650px; /* Increased height to support 9:16 portrait video on desktop */
     padding: 2rem 0;
     overflow: hidden;
     margin-bottom: 2rem;
@@ -540,7 +540,8 @@ a {
 }
 
 .video-slide {
-    width: 12%; /* Narrow inactive slide */
+    width: 15%; /* Narrow inactive slide */
+    max-width: 160px;
     height: 100%;
     position: relative;
     overflow: hidden;
@@ -555,7 +556,9 @@ a {
 
 /* The exact center slide is always the 3rd one */
 .video-slide:nth-child(3) {
-    width: 55%; /* Wide active slide */
+    width: auto;
+    aspect-ratio: 9 / 16; /* Force vertical video format */
+    max-width: 80%; /* Ensure it fits on smaller screens */
     opacity: 1;
     filter: brightness(1);
     cursor: default;
@@ -823,10 +826,12 @@ a {
         grid-template-columns: repeat(2, 1fr);
     }
     .video-slide {
-        width: 25%;
+        width: 15%;
+        max-width: 60px;
     }
-    .video-slide.swiper-slide-active {
-        width: 80%;
+    .video-slide:nth-child(3) {
+        width: auto;
+        aspect-ratio: 9 / 16;
     }
     .hero-title {
         font-size: 3rem;
