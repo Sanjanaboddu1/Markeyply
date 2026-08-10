@@ -205,8 +205,12 @@ a {
     transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after, .nav-link.active::after {
     width: 100%;
+}
+
+.nav-link.active {
+    color: #1b7cbb;
 }
 
 .navbar .btn-outline {

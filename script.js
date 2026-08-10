@@ -227,3 +227,34 @@ if (testiTrack && testiDots.length) {
         }
     });
 }
+
+// --- ScrollSpy for Navigation Links ---
+const sections = document.querySelectorAll('header[id], section[id]');
+const navLinks = document.querySelectorAll('.nav-links .nav-link');
+
+if (sections.length > 0 && navLinks.length > 0) {
+    const observerOptions = {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px',
+        threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.getAttribute('id');
+                // Remove active class from all links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+}
