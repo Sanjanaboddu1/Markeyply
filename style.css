@@ -201,16 +201,12 @@ a {
     left: 0;
     width: 0%;
     height: 1px;
-    background-color: currentColor;
+    background-color: #1b7cbb;
     transition: width 0.3s ease;
 }
 
 .nav-link:hover::after, .nav-link.active::after {
     width: 100%;
-}
-
-.nav-link.active {
-    color: #1b7cbb;
 }
 
 .navbar .btn-outline {
