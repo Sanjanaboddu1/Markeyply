@@ -210,3 +210,20 @@ if (cursorCircle) {
         cursorCircle.style.top = e.clientY + 'px';
     });
 }
+
+// --- Testimonials Slider Logic ---
+const testiTrack = document.querySelector('.testimonials-track');
+const testiDots = document.querySelectorAll('.testi-pagination .dot');
+
+if (testiTrack && testiDots.length) {
+    testiTrack.addEventListener('scroll', () => {
+        const scrollPercentage = testiTrack.scrollLeft / (testiTrack.scrollWidth - testiTrack.clientWidth);
+        if (scrollPercentage > 0.5) {
+            testiDots[0].classList.remove('active');
+            testiDots[1].classList.add('active');
+        } else {
+            testiDots[1].classList.remove('active');
+            testiDots[0].classList.add('active');
+        }
+    });
+}
