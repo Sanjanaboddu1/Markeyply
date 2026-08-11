@@ -996,7 +996,7 @@ a {
         font-size: clamp(2.2rem, 8vw, 3rem);
     }
     .parallax-content h2 {
-        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        font-size: clamp(2.2rem, 9vw, 3.2rem);
         line-height: 1.2;
     }
     .parallax-content p {
