@@ -217,14 +217,19 @@ const testiDots = document.querySelectorAll('.testi-pagination .dot');
 
 if (testiTrack && testiDots.length) {
     testiTrack.addEventListener('scroll', () => {
-        const scrollPercentage = testiTrack.scrollLeft / (testiTrack.scrollWidth - testiTrack.clientWidth);
-        if (scrollPercentage > 0.5) {
-            testiDots[0].classList.remove('active');
-            testiDots[1].classList.add('active');
-        } else {
-            testiDots[1].classList.remove('active');
-            testiDots[0].classList.add('active');
-        }
+        const maxScroll = testiTrack.scrollWidth - testiTrack.clientWidth;
+        if (maxScroll <= 0) return;
+        
+        const scrollPercentage = testiTrack.scrollLeft / maxScroll;
+        const activeIndex = Math.round(scrollPercentage * (testiDots.length - 1));
+        
+        testiDots.forEach((dot, index) => {
+            if (index === activeIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
     });
 }
 

@@ -990,6 +990,35 @@ a {
     }
 }
 
+/* Mobile specific fixes (<= 768px) */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+    .parallax-content h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        line-height: 1.2;
+    }
+    .parallax-content p {
+        font-size: 1rem;
+    }
+    .testi-card {
+        min-width: 85vw;
+        max-width: 85vw;
+        padding: 2rem 1.5rem;
+    }
+    .testimonials-track {
+        gap: 1rem;
+        padding: 1rem 5vw 3rem 5vw;
+    }
+    .about-text h2, .section-heading {
+        font-size: clamp(2rem, 8vw, 2.5rem) !important;
+    }
+    .contact-title h2 {
+        font-size: 2.2rem;
+    }
+}
+
 /* Custom Cursor */
 .cursor-circle {
     display: none;
