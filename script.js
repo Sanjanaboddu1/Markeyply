@@ -263,3 +263,22 @@ if (sections.length > 0 && navLinks.length > 0) {
         sectionObserver.observe(section);
     });
 }
+
+// --- Mobile Hamburger Menu ---
+const hamburger = document.querySelector('.hamburger');
+const navLinksContainer = document.querySelector('.nav-links');
+
+if (hamburger && navLinksContainer) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinksContainer.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinksContainer.classList.remove('active');
+        });
+    });
+}

@@ -944,6 +944,21 @@ a {
     top: 4.5px;
 }
 
+/* Hamburger Menu Base */
+.hamburger {
+    display: none;
+    cursor: none; /* using our custom cursor */
+}
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--black);
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .about-grid, .services-grid, .footer-grid {
@@ -985,7 +1000,46 @@ a {
     .hero-content {
         padding: 0 2rem;
     }
-    .nav-links, .nav-btn {
+    
+    .hamburger {
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 70px; /* Below the navbar */
+        gap: 0;
+        flex-direction: column;
+        background-color: #f7f3ee;
+        width: 100%;
+        height: calc(100vh - 70px);
+        text-align: center;
+        transition: 0.3s;
+        padding-top: 2rem;
+        z-index: 1000;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        margin: 1.5rem 0;
+        font-size: 1.5rem;
+    }
+    
+    .nav-btn {
         display: none;
     }
 }
